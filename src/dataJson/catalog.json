@@ -1,0 +1,132 @@
+[
+  {
+    "fournisseur": [
+      {
+        "id": 12,
+        "name": "YT (YesTech)",
+        "aka": ["YesTech Electronics"],
+        "code": "YT-098-765-4321"
+      },
+      {
+        "id": 11,
+        "name": "YC (Yuchip)",
+        "aka": ["Yuchip LED Displays"],
+        "code": "YC-123-456-7890"
+      },
+      {
+        "id": 10,
+        "name": "LMP (Lamp Unilumin)",
+        "aka": ["Lamp Unilumin LED Solutions"],
+        "code": "LMP-234-567-8901"
+      },
+      {
+        "id": 9,
+        "name": "Liantronics (Liantro)",
+        "aka": ["Liantronics LED Displays"],
+        "code": "LT-345-678-9012"
+      },
+      {
+        "id": 8,
+        "name": "RocketSign",
+        "aka": ["Liantronics LED Displays"],
+        "code": "LT-345-678-9012"
+      }
+    ]
+  },
+  {
+    "modelecabinet": [
+      {
+        "id": 24,
+        "name": "Cabinet YT ES",
+        "code": "YT-ES-390",
+        "pitch": "P3.9",
+        "modèle": [
+          {
+            "copper wire": false,
+            "gold wire": false,
+            "blackled": true,
+            "whiteled": true,
+            "outdoor": false,
+            "indoor": true
+          }
+        ]
+      },
+      {
+        "id": 25,
+        "name": "Cabinet YC ECO PRO",
+        "code": "YC-ECO-PRO-290",
+        "pitch": "P2.9",
+        "modèle": [
+          {
+            "copper wire": true,
+            "gold wire": false,
+            "blackled": false,
+            "whiteled": true,
+            "outdoor": false,
+            "indoor": true
+          }
+        ]
+      },
+      {
+        "id": 26,
+        "name": "Cabinet LMP LSK",
+        "code": "LMP-LSK-290",
+        "pitch": "P2.9",
+        "modèle": [
+          {
+            "copper wire": false,
+            "gold wire": false,
+            "blackled": false,
+            "whiteled": true,
+            "outdoor": false,
+            "indoor": true
+          }
+        ]
+      },
+      {
+        "id": 27,
+        "name": "Cabinet LT BIMPRO",
+        "code": "LT-BIMPRO-190",
+        "pitch": "P1.9",
+        "modèle": [
+          {
+            "copper wire": false,
+            "gold wire": false,
+            "blackled": false,
+            "whiteled": false,
+            "outdoor": false,
+            "indoor": false
+          }
+        ]
+      },
+      {
+        "id": 28,
+        "name": "Cabinet SX",
+        "code": "RocketSign",
+        "pitch": "P3",
+        "modèle": [
+          {
+            "copper wire": false,
+            "gold wire": false,
+            "blackled": false,
+            "whiteled": false,
+            "outdoor": false,
+            "indoor": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "sendingcard": [
+      {
+        "id": 15,
+        "name": "Nova V4X"
+      },
+      {
+        "id": 11,
+        "name": "Tim LVX"
+      }
+    ]
+  }
+]
