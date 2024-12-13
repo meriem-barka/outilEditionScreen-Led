@@ -1,7 +1,5 @@
 <script>
-    import data from "../../../dataJson/catalogue.json";
-    import Footer from "../../components/Footer.svelte";
-    import Header from "./Header.svelte";
+    import data from "../dataJson/catalog.json";
     
     let selectedFournisseur = null;
     let selectedCabinet = null;
@@ -22,8 +20,6 @@
         selectedSendingCard = data[2].sendingcard[selectedIndex];
     }
 </script>
-
-<Header />
 
 <div class="allInfo">
     <h1>Catalogue des Articles</h1>
@@ -128,7 +124,6 @@
     </section>
 </div>
 
-<Footer />
 
 <style>
     * {

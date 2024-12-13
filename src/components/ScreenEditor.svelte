@@ -13,8 +13,7 @@
     let toCabinet = null; 
     let isDrawing = false;
     let lineSegments = [];
-    // let clickCount = 0;
-    // let lastClickedCabinet = null;
+
 
     const getBaseCabinetDimensions = (size) => {
         switch (size) {
@@ -58,8 +57,6 @@
         ctx.stroke();
         ctx.restore();
     };
-
-
 
     const drawCabinets = () => {
         const ctx = canvas.getContext("2d");
