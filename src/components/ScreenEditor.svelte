@@ -13,7 +13,7 @@
     let toCabinet = null; 
     let isDrawing = false;
     let lineSegments = [];
-
+    let currentLineType = 'blue'; 
 
     const getBaseCabinetDimensions = (size) => {
         switch (size) {
@@ -44,15 +44,16 @@
             height: baseDimensions.height * scaleRatio,
         };
     };
-    
-    const drawLine = (start, end) => {
+
+    // Fonction pour dessiner les lignes (connexion ou alimentation)
+    const drawLine = (start, end, color = 'blue') => {
         const ctx = canvas.getContext("2d");
 
         ctx.save();
         ctx.beginPath();
         ctx.moveTo(start.x, start.y);
-        ctx.lineTo(end.x, end.y, end);
-        ctx.strokeStyle = 'blue';
+        ctx.lineTo(end.x, end.y);
+        ctx.strokeStyle = color;
         ctx.lineWidth = 2;
         ctx.stroke();
         ctx.restore();
@@ -102,14 +103,14 @@
         if (isDrawing && fromCabinet) {
             drawCabinets();
             drawPreviousLines();
-            drawLine(fromCabinet, mousePosition);
+            drawLine(fromCabinet, mousePosition, currentLineType);
         } else {
             const hoveredCabinet = getHoveredCabinet(mouseX, mouseY);
             drawCabinets();
             drawPreviousLines();
 
             if (hoveredCabinet) {
-                drawLine(hoveredCabinet, mousePosition);
+                drawLine(hoveredCabinet, mousePosition, currentLineType); 
             }
         }
     };
@@ -124,22 +125,28 @@
             fromCabinet = clickedCabinet;
             isDrawing = true;
         } else if (isDrawing) {
-            isDrawing = false;
             toCabinet = { x: mouseX, y: mouseY };
-            lineSegments.push({ from: fromCabinet, to: toCabinet });
+            lineSegments.push({ from: fromCabinet, to: toCabinet, type: currentLineType });
 
             drawCabinets();
             drawPreviousLines();
-            drawLine(fromCabinet, toCabinet); 
+            drawLine(fromCabinet, toCabinet, currentLineType);
 
-            fromCabinet = toCabinet; 
+            fromCabinet = toCabinet;
+            toCabinet = null; 
             isDrawing = true; 
         }
     };
 
+    const handleDoubleClick = () => {
+        isDrawing = false;
+        fromCabinet = null;
+        toCabinet = null;
+    };
+
     const drawPreviousLines = () => {
         lineSegments.forEach((segment) => {
-            drawLine(segment.from, segment.to);
+            drawLine(segment.from, segment.to, segment.type);
         });
     };
 
@@ -147,8 +154,9 @@
         drawCabinets();
         canvas.addEventListener("mousemove", handleMouseMove);
         canvas.addEventListener("click", handleClick);
+        canvas.addEventListener("dblclick", handleDoubleClick);
     });
-    
+
 </script>
 
 <section>
@@ -177,6 +185,12 @@
                 <option value="medium">Medium (100x60)</option>
                 <option value="large">Large (150x90)</option>
             </select>
+
+            <label>Line Type</label>
+            <select bind:value={currentLineType} on:change={drawCabinets}>
+                <option value="blue">Blue (Connection)</option>
+                <option value="red">Red (Power)</option>
+            </select>
         </form>
     </div>
 
@@ -186,4 +200,3 @@
 
 <style>
 </style>
-
